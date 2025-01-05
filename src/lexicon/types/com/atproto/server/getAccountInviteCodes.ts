@@ -1,38 +1,35 @@
 /**
  * GENERATED CODE - DO NOT MODIFY
  */
-import express from 'express'
-import { ValidationResult, BlobRef } from '@atproto/lexicon'
-import { lexicons } from '../../../../lexicons'
-import { isObj, hasProp } from '../../../../util'
-import { CID } from 'multiformats/cid'
-import { HandlerAuth } from '@atproto/xrpc-server'
-import * as ComAtprotoServerDefs from './defs'
+import express from 'express';
+import { HandlerAuth } from '@atproto/xrpc-server';
+import * as ComAtprotoServerDefs from './defs';
 
 export interface QueryParams {
-  includeUsed: boolean
-  createAvailable: boolean
+  includeUsed: boolean;
+  createAvailable: boolean;
 }
 
 export type InputSchema = undefined
 
 export interface OutputSchema {
-  codes: ComAtprotoServerDefs.InviteCode[]
-  [k: string]: unknown
+  codes: ComAtprotoServerDefs.InviteCode[];
+
+  [k: string]: unknown;
 }
 
 export type HandlerInput = undefined
 
 export interface HandlerSuccess {
-  encoding: 'application/json'
-  body: OutputSchema
-  headers?: { [key: string]: string }
+  encoding: 'application/json';
+  body: OutputSchema;
+  headers?: { [key: string]: string };
 }
 
 export interface HandlerError {
-  status: number
-  message?: string
-  error?: 'DuplicateCreate'
+  status: number;
+  message?: string;
+  error?: 'DuplicateCreate';
 }
 
 export type HandlerOutput = HandlerError | HandlerSuccess

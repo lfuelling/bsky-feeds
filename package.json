@@ -1,10 +1,13 @@
 {
-  "name": "feed-generator",
+  "name": "newposts",
   "version": "1.0.0",
-  "description": "atproto feed generator starter kit",
+  "description": "new posts feed generator",
   "main": "index.js",
-  "repository": "git@github.com:bluesky-social/feed-generator.git",
-  "author": "dholms <dtholmgren@gmail.com>",
+  "repository": "git@git.lrk.sh:lerk/newposts.git",
+  "author": {
+    "name": "Lukas Fülling",
+    "email": "lukas@k40s.net"
+  },
   "license": "MIT",
   "scripts": {
     "publishFeed": "ts-node scripts/publishFeedGen.ts",

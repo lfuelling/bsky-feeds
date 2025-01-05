@@ -1,7 +1,7 @@
 /**
  * GENERATED CODE - DO NOT MODIFY
  */
-import { LexiconDoc, Lexicons } from '@atproto/lexicon'
+import { LexiconDoc, Lexicons } from '@atproto/lexicon';
 
 export const schemaDict = {
   ComAtprotoAdminDefs: {
@@ -1113,7 +1113,7 @@ export const schemaDict = {
           properties: {
             term: {
               type: 'string',
-              description: "DEPRECATED: use 'q' instead",
+              description: 'DEPRECATED: use \'q\' instead',
             },
             q: {
               type: 'string',
@@ -1160,7 +1160,7 @@ export const schemaDict = {
     defs: {
       main: {
         type: 'procedure',
-        description: "Send email to a user's primary email address",
+        description: 'Send email to a user\'s primary email address',
         input: {
           encoding: 'application/json',
           schema: {
@@ -1278,7 +1278,7 @@ export const schemaDict = {
     defs: {
       main: {
         type: 'procedure',
-        description: "Administrative action to update an account's email",
+        description: 'Administrative action to update an account\'s email',
         input: {
           encoding: 'application/json',
           schema: {
@@ -1305,7 +1305,7 @@ export const schemaDict = {
     defs: {
       main: {
         type: 'procedure',
-        description: "Administrative action to update an account's handle",
+        description: 'Administrative action to update an account\'s handle',
         input: {
           encoding: 'application/json',
           schema: {
@@ -1407,7 +1407,7 @@ export const schemaDict = {
             type: 'string',
             format: 'cid',
             description:
-              "optionally, CID specifying the specific version of 'uri' resource this label applies to",
+              'optionally, CID specifying the specific version of \'uri\' resource this label applies to',
           },
           val: {
             type: 'string',
@@ -1476,7 +1476,7 @@ export const schemaDict = {
                 type: 'string',
               },
               description:
-                "List of AT URI patterns to match (boolean 'OR'). Each may be a prefix (ending with '*'; will match inclusive of the string leading to '*'), or a full URI",
+                'List of AT URI patterns to match (boolean \'OR\'). Each may be a prefix (ending with \'*\'; will match inclusive of the string leading to \'*\'), or a full URI',
             },
             sources: {
               type: 'array',
@@ -1873,7 +1873,7 @@ export const schemaDict = {
     defs: {
       main: {
         type: 'procedure',
-        description: "Delete a record, or ensure it doesn't exist.",
+        description: 'Delete a record, or ensure it doesn\'t exist.',
         input: {
           encoding: 'application/json',
           schema: {
@@ -2651,7 +2651,7 @@ export const schemaDict = {
       main: {
         type: 'query',
         description:
-          "Get a document describing the service's accounts configuration.",
+          'Get a document describing the service\'s accounts configuration.',
         output: {
           encoding: 'application/json',
           schema: {
@@ -3141,7 +3141,7 @@ export const schemaDict = {
       main: {
         type: 'query',
         description:
-          "Gets the did's repo, optionally catching up from a specific revision.",
+          'Gets the did\'s repo, optionally catching up from a specific revision.',
         parameters: {
           type: 'params',
           required: ['did'],
@@ -3503,7 +3503,7 @@ export const schemaDict = {
       repoOp: {
         type: 'object',
         description:
-          "A repo operation, ie a write of a single record. For creates and updates, cid is the record's CID as of this operation. For deletes, it's null.",
+          'A repo operation, ie a write of a single record. For creates and updates, cid is the record\'s CID as of this operation. For deletes, it\'s null.',
         required: ['action', 'path', 'cid'],
         nullable: ['cid'],
         properties: {
@@ -4008,7 +4008,7 @@ export const schemaDict = {
           properties: {
             term: {
               type: 'string',
-              description: "DEPRECATED: use 'q' instead",
+              description: 'DEPRECATED: use \'q\' instead',
             },
             q: {
               type: 'string',
@@ -4060,7 +4060,7 @@ export const schemaDict = {
           properties: {
             term: {
               type: 'string',
-              description: "DEPRECATED: use 'q' instead",
+              description: 'DEPRECATED: use \'q\' instead',
             },
             q: {
               type: 'string',
@@ -4941,7 +4941,7 @@ export const schemaDict = {
     defs: {
       main: {
         type: 'query',
-        description: "A view of an actor's feed.",
+        description: 'A view of an actor\'s feed.',
         parameters: {
           type: 'params',
           required: ['actor'],
@@ -5007,7 +5007,7 @@ export const schemaDict = {
       main: {
         type: 'query',
         description:
-          "Compose and hydrate a feed from a user's selected feed generator",
+          'Compose and hydrate a feed from a user\'s selected feed generator',
         parameters: {
           type: 'params',
           required: ['feed'],
@@ -5375,7 +5375,7 @@ export const schemaDict = {
     defs: {
       main: {
         type: 'query',
-        description: "A view of an actor's feed.",
+        description: 'A view of an actor\'s feed.',
         parameters: {
           type: 'params',
           required: ['uris'],
@@ -5517,7 +5517,7 @@ export const schemaDict = {
     defs: {
       main: {
         type: 'query',
-        description: "A view of the user's home timeline.",
+        description: 'A view of the user\'s home timeline.',
         parameters: {
           type: 'params',
           properties: {
@@ -5679,7 +5679,7 @@ export const schemaDict = {
           },
           type: {
             type: 'string',
-            description: "Expected values are 'mention' and 'link'.",
+            description: 'Expected values are \'mention\' and \'link\'.',
           },
           value: {
             type: 'string',
@@ -5797,7 +5797,7 @@ export const schemaDict = {
         type: 'record',
         key: 'tid',
         description:
-          "Defines interaction gating rules for a thread. The rkey of the threadgate record should match the rkey of the thread's root post.",
+          'Defines interaction gating rules for a thread. The rkey of the threadgate record should match the rkey of the thread\'s root post.',
         record: {
           type: 'object',
           required: ['post', 'createdAt'],
@@ -6033,7 +6033,7 @@ export const schemaDict = {
     defs: {
       main: {
         type: 'query',
-        description: "Who is the requester's account blocking?",
+        description: 'Who is the requester\'s account blocking?',
         parameters: {
           type: 'params',
           properties: {
@@ -6232,7 +6232,7 @@ export const schemaDict = {
     defs: {
       main: {
         type: 'query',
-        description: "Which lists is the requester's account blocking?",
+        description: 'Which lists is the requester\'s account blocking?',
         parameters: {
           type: 'params',
           properties: {
@@ -6275,7 +6275,7 @@ export const schemaDict = {
     defs: {
       main: {
         type: 'query',
-        description: "Which lists is the requester's account muting?",
+        description: 'Which lists is the requester\'s account muting?',
         parameters: {
           type: 'params',
           properties: {
@@ -6737,7 +6737,7 @@ export const schemaDict = {
           reason: {
             type: 'string',
             description:
-              "Expected values are 'like', 'repost', 'follow', 'mention', 'reply', and 'quote'.",
+              'Expected values are \'like\', \'repost\', \'follow\', \'mention\', \'reply\', and \'quote\'.',
             knownValues: [
               'like',
               'repost',
@@ -7091,7 +7091,7 @@ export const schemaDict = {
             },
             typeahead: {
               type: 'boolean',
-              description: "if true, acts as fast/simple 'typeahead' query",
+              description: 'if true, acts as fast/simple \'typeahead\' query',
             },
             limit: {
               type: 'integer',
@@ -7199,9 +7199,9 @@ export const schemaDict = {
       },
     },
   },
-}
-export const schemas: LexiconDoc[] = Object.values(schemaDict) as LexiconDoc[]
-export const lexicons: Lexicons = new Lexicons(schemas)
+};
+export const schemas: LexiconDoc[] = Object.values(schemaDict) as LexiconDoc[];
+export const lexicons: Lexicons = new Lexicons(schemas);
 export const ids = {
   ComAtprotoAdminDefs: 'com.atproto.admin.defs',
   ComAtprotoAdminDisableAccountInvites:
@@ -7341,4 +7341,4 @@ export const ids = {
   AppBskyUnspeccedSearchActorsSkeleton:
     'app.bsky.unspecced.searchActorsSkeleton',
   AppBskyUnspeccedSearchPostsSkeleton: 'app.bsky.unspecced.searchPostsSkeleton',
-}
+};

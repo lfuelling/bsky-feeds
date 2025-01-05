@@ -1,48 +1,48 @@
 /**
  * GENERATED CODE - DO NOT MODIFY
  */
-import express from 'express'
-import { ValidationResult, BlobRef } from '@atproto/lexicon'
-import { lexicons } from '../../../../lexicons'
-import { isObj, hasProp } from '../../../../util'
-import { CID } from 'multiformats/cid'
-import { HandlerAuth } from '@atproto/xrpc-server'
+import express from 'express';
+import { ValidationResult } from '@atproto/lexicon';
+import { lexicons } from '../../../../lexicons';
+import { hasProp, isObj } from '../../../../util';
+import { HandlerAuth } from '@atproto/xrpc-server';
 
 export interface QueryParams {
   /** The handle or DID of the repo. */
-  repo: string
+  repo: string;
   /** The NSID of the record type. */
-  collection: string
+  collection: string;
   /** The number of records to return. */
-  limit: number
-  cursor?: string
+  limit: number;
+  cursor?: string;
   /** DEPRECATED: The lowest sort-ordered rkey to start from (exclusive) */
-  rkeyStart?: string
+  rkeyStart?: string;
   /** DEPRECATED: The highest sort-ordered rkey to stop at (exclusive) */
-  rkeyEnd?: string
+  rkeyEnd?: string;
   /** Reverse the order of the returned records? */
-  reverse?: boolean
+  reverse?: boolean;
 }
 
 export type InputSchema = undefined
 
 export interface OutputSchema {
-  cursor?: string
-  records: Record[]
-  [k: string]: unknown
+  cursor?: string;
+  records: Record[];
+
+  [k: string]: unknown;
 }
 
 export type HandlerInput = undefined
 
 export interface HandlerSuccess {
-  encoding: 'application/json'
-  body: OutputSchema
-  headers?: { [key: string]: string }
+  encoding: 'application/json';
+  body: OutputSchema;
+  headers?: { [key: string]: string };
 }
 
 export interface HandlerError {
-  status: number
-  message?: string
+  status: number;
+  message?: string;
 }
 
 export type HandlerOutput = HandlerError | HandlerSuccess
@@ -58,10 +58,11 @@ export type Handler<HA extends HandlerAuth = never> = (
 ) => Promise<HandlerOutput> | HandlerOutput
 
 export interface Record {
-  uri: string
-  cid: string
-  value: {}
-  [k: string]: unknown
+  uri: string;
+  cid: string;
+  value: {};
+
+  [k: string]: unknown;
 }
 
 export function isRecord(v: unknown): v is Record {
@@ -69,9 +70,9 @@ export function isRecord(v: unknown): v is Record {
     isObj(v) &&
     hasProp(v, '$type') &&
     v.$type === 'com.atproto.repo.listRecords#record'
-  )
+  );
 }
 
 export function validateRecord(v: unknown): ValidationResult {
-  return lexicons.validate('com.atproto.repo.listRecords#record', v)
+  return lexicons.validate('com.atproto.repo.listRecords#record', v);
 }

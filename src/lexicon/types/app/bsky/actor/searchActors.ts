@@ -1,42 +1,39 @@
 /**
  * GENERATED CODE - DO NOT MODIFY
  */
-import express from 'express'
-import { ValidationResult, BlobRef } from '@atproto/lexicon'
-import { lexicons } from '../../../../lexicons'
-import { isObj, hasProp } from '../../../../util'
-import { CID } from 'multiformats/cid'
-import { HandlerAuth } from '@atproto/xrpc-server'
-import * as AppBskyActorDefs from './defs'
+import express from 'express';
+import { HandlerAuth } from '@atproto/xrpc-server';
+import * as AppBskyActorDefs from './defs';
 
 export interface QueryParams {
   /** DEPRECATED: use 'q' instead */
-  term?: string
+  term?: string;
   /** search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended */
-  q?: string
-  limit: number
-  cursor?: string
+  q?: string;
+  limit: number;
+  cursor?: string;
 }
 
 export type InputSchema = undefined
 
 export interface OutputSchema {
-  cursor?: string
-  actors: AppBskyActorDefs.ProfileView[]
-  [k: string]: unknown
+  cursor?: string;
+  actors: AppBskyActorDefs.ProfileView[];
+
+  [k: string]: unknown;
 }
 
 export type HandlerInput = undefined
 
 export interface HandlerSuccess {
-  encoding: 'application/json'
-  body: OutputSchema
-  headers?: { [key: string]: string }
+  encoding: 'application/json';
+  body: OutputSchema;
+  headers?: { [key: string]: string };
 }
 
 export interface HandlerError {
-  status: number
-  message?: string
+  status: number;
+  message?: string;
 }
 
 export type HandlerOutput = HandlerError | HandlerSuccess

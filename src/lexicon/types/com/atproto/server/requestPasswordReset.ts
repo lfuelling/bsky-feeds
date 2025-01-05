@@ -1,28 +1,26 @@
 /**
  * GENERATED CODE - DO NOT MODIFY
  */
-import express from 'express'
-import { ValidationResult, BlobRef } from '@atproto/lexicon'
-import { lexicons } from '../../../../lexicons'
-import { isObj, hasProp } from '../../../../util'
-import { CID } from 'multiformats/cid'
-import { HandlerAuth } from '@atproto/xrpc-server'
+import express from 'express';
+import { HandlerAuth } from '@atproto/xrpc-server';
 
-export interface QueryParams {}
+export interface QueryParams {
+}
 
 export interface InputSchema {
-  email: string
-  [k: string]: unknown
+  email: string;
+
+  [k: string]: unknown;
 }
 
 export interface HandlerInput {
-  encoding: 'application/json'
-  body: InputSchema
+  encoding: 'application/json';
+  body: InputSchema;
 }
 
 export interface HandlerError {
-  status: number
-  message?: string
+  status: number;
+  message?: string;
 }
 
 export type HandlerOutput = HandlerError | void

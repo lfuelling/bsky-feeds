@@ -1,36 +1,33 @@
 /**
  * GENERATED CODE - DO NOT MODIFY
  */
-import express from 'express'
-import { ValidationResult, BlobRef } from '@atproto/lexicon'
-import { lexicons } from '../../../../lexicons'
-import { isObj, hasProp } from '../../../../util'
-import { CID } from 'multiformats/cid'
-import { HandlerAuth } from '@atproto/xrpc-server'
-import * as AppBskyFeedDefs from './defs'
+import express from 'express';
+import { HandlerAuth } from '@atproto/xrpc-server';
+import * as AppBskyFeedDefs from './defs';
 
 export interface QueryParams {
-  feeds: string[]
+  feeds: string[];
 }
 
 export type InputSchema = undefined
 
 export interface OutputSchema {
-  feeds: AppBskyFeedDefs.GeneratorView[]
-  [k: string]: unknown
+  feeds: AppBskyFeedDefs.GeneratorView[];
+
+  [k: string]: unknown;
 }
 
 export type HandlerInput = undefined
 
 export interface HandlerSuccess {
-  encoding: 'application/json'
-  body: OutputSchema
-  headers?: { [key: string]: string }
+  encoding: 'application/json';
+  body: OutputSchema;
+  headers?: { [key: string]: string };
 }
 
 export interface HandlerError {
-  status: number
-  message?: string
+  status: number;
+  message?: string;
 }
 
 export type HandlerOutput = HandlerError | HandlerSuccess

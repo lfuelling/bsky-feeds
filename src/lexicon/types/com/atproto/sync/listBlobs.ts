@@ -1,41 +1,38 @@
 /**
  * GENERATED CODE - DO NOT MODIFY
  */
-import express from 'express'
-import { ValidationResult, BlobRef } from '@atproto/lexicon'
-import { lexicons } from '../../../../lexicons'
-import { isObj, hasProp } from '../../../../util'
-import { CID } from 'multiformats/cid'
-import { HandlerAuth } from '@atproto/xrpc-server'
+import express from 'express';
+import { HandlerAuth } from '@atproto/xrpc-server';
 
 export interface QueryParams {
   /** The DID of the repo. */
-  did: string
+  did: string;
   /** Optional revision of the repo to list blobs since */
-  since?: string
-  limit: number
-  cursor?: string
+  since?: string;
+  limit: number;
+  cursor?: string;
 }
 
 export type InputSchema = undefined
 
 export interface OutputSchema {
-  cursor?: string
-  cids: string[]
-  [k: string]: unknown
+  cursor?: string;
+  cids: string[];
+
+  [k: string]: unknown;
 }
 
 export type HandlerInput = undefined
 
 export interface HandlerSuccess {
-  encoding: 'application/json'
-  body: OutputSchema
-  headers?: { [key: string]: string }
+  encoding: 'application/json';
+  body: OutputSchema;
+  headers?: { [key: string]: string };
 }
 
 export interface HandlerError {
-  status: number
-  message?: string
+  status: number;
+  message?: string;
 }
 
 export type HandlerOutput = HandlerError | HandlerSuccess

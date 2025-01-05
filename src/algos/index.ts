@@ -1,14 +1,11 @@
-import { AppContext } from '../config'
-import {
-  QueryParams,
-  OutputSchema as AlgoOutput,
-} from '../lexicon/types/app/bsky/feed/getFeedSkeleton'
-import * as whatsAlf from './whats-alf'
+import { AppContext } from '../config';
+import { OutputSchema as AlgoOutput, QueryParams } from '../lexicon/types/app/bsky/feed/getFeedSkeleton';
+import * as newposts from './newposts';
 
-type AlgoHandler = (ctx: AppContext, params: QueryParams) => Promise<AlgoOutput>
+type AlgoHandler = (ctx: AppContext, params: QueryParams) => Promise<AlgoOutput>;
 
 const algos: Record<string, AlgoHandler> = {
-  [whatsAlf.shortname]: whatsAlf.handler,
-}
+  [newposts.shortname]: newposts.handler,
+};
 
-export default algos
+export default algos;

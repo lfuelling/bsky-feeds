@@ -1,35 +1,31 @@
 /**
  * GENERATED CODE - DO NOT MODIFY
  */
-import express from 'express'
-import stream from 'stream'
-import { ValidationResult, BlobRef } from '@atproto/lexicon'
-import { lexicons } from '../../../../lexicons'
-import { isObj, hasProp } from '../../../../util'
-import { CID } from 'multiformats/cid'
-import { HandlerAuth } from '@atproto/xrpc-server'
+import express from 'express';
+import stream from 'stream';
+import { HandlerAuth } from '@atproto/xrpc-server';
 
 export interface QueryParams {
   /** The DID of the repo. */
-  did: string
-  collection: string
-  rkey: string
+  did: string;
+  collection: string;
+  rkey: string;
   /** An optional past commit CID. */
-  commit?: string
+  commit?: string;
 }
 
 export type InputSchema = undefined
 export type HandlerInput = undefined
 
 export interface HandlerSuccess {
-  encoding: 'application/vnd.ipld.car'
-  body: Uint8Array | stream.Readable
-  headers?: { [key: string]: string }
+  encoding: 'application/vnd.ipld.car';
+  body: Uint8Array | stream.Readable;
+  headers?: { [key: string]: string };
 }
 
 export interface HandlerError {
-  status: number
-  message?: string
+  status: number;
+  message?: string;
 }
 
 export type HandlerOutput = HandlerError | HandlerSuccess

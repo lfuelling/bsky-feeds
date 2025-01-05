@@ -1,11 +1,10 @@
-import dotenv from 'dotenv'
-import { AtpAgent, BlobRef } from '@atproto/api'
-import fs from 'fs/promises'
-import { ids } from '../src/lexicon/lexicons'
-import inquirer from 'inquirer'
+import dotenv from 'dotenv';
+import { AtpAgent } from '@atproto/api';
+import { ids } from '../src/lexicon/lexicons';
+import inquirer from 'inquirer';
 
 const run = async () => {
-  dotenv.config()
+  dotenv.config();
 
   const answers = await inquirer
     .prompt([
@@ -38,27 +37,27 @@ const run = async () => {
         name: 'confirm',
         message: 'Are you sure you want to delete this record? Any likes that your feed has will be lost:',
         default: false,
-      }
-    ])
+      },
+    ]);
 
-  const { handle, password, recordName, service, confirm } = answers
+  const { handle, password, recordName, service, confirm } = answers;
 
   if (!confirm) {
-    console.log('Aborting...')
-    return
+    console.log('Aborting...');
+    return;
   }
 
   // only update this if in a test environment
-  const agent = new AtpAgent({ service: service ? service : 'https://bsky.social' })
-  await agent.login({ identifier: handle, password })
+  const agent = new AtpAgent({ service: service ? service : 'https://bsky.social' });
+  await agent.login({ identifier: handle, password });
 
   await agent.api.com.atproto.repo.deleteRecord({
     repo: agent.session?.did ?? '',
     collection: ids.AppBskyFeedGenerator,
     rkey: recordName,
-  })
+  });
 
-  console.log('All done 🎉')
-}
+  console.log('All done 🎉');
+};
 
-run()
+run();
