@@ -13,7 +13,7 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
         return {
           uri: create.uri,
           cid: create.cid,
-          indexedAt: new Date().toISOString(),
+          indexedAt: new Date().getTime(),
         };
       });
 
@@ -30,5 +30,10 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
         .onConflict((oc) => oc.doNothing())
         .execute();
     }
+
+    await this.db
+      .deleteFrom('post')
+      .where('indexedAt', '<=', new Date().getTime() - 86400000)
+      .execute();
   }
 }

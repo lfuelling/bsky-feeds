@@ -12,8 +12,7 @@ export const handler = async (ctx: AppContext, params: QueryParams) => {
     .limit(params.limit);
 
   if (params.cursor) {
-    const timeStr = new Date(parseInt(params.cursor, 10)).toISOString();
-    builder = builder.where('post.indexedAt', '<', timeStr);
+    builder = builder.where('post.indexedAt', '<', new Date(parseInt(params.cursor, 10)).getTime());
   }
   const res = await builder.execute();
 
