@@ -22,8 +22,6 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
         .deleteFrom('post')
         .where('uri', 'in', postsToDelete)
         .execute();
-
-      console.log(`Successfully removed: ${postsToDelete.length} posts`);
     }
     if (postsToCreate.length > 0) {
       await this.db
@@ -31,8 +29,6 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
         .values(postsToCreate)
         .onConflict((oc) => oc.doNothing())
         .execute();
-
-      console.log(`Successfully added: ${postsToCreate.length} posts`);
     }
   }
 }
