@@ -1,13 +1,14 @@
 {
-  "name": "newposts",
+  "name": "feeds",
   "version": "1.0.0",
-  "description": "new posts feed generator",
+  "description": "Lerk's feed generator.",
   "main": "index.js",
-  "repository": "git@git.lrk.sh:lerk/newposts.git",
+  "repository": "git@git.lrk.sh:lerk/feeds.git",
   "author": {
     "name": "Lukas Fülling",
     "email": "lukas@k40s.net"
   },
+  "private": "true",
   "license": "MIT",
   "scripts": {
     "publishFeed": "ts-node scripts/publishFeedGen.ts",
