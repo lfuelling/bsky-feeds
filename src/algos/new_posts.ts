@@ -1,7 +1,7 @@
 import { QueryParams } from '../lexicon/types/app/bsky/feed/getFeedSkeleton';
 import { AppContext } from '../config';
 
-export const shortname = 'newposts';
+export const shortname = 'new_posts';
 
 export const handler = async (ctx: AppContext, params: QueryParams) => {
   let builder = ctx.db
