@@ -23,6 +23,7 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
         .where('uri', 'in', postsToDelete)
         .execute();
     }
+
     if (postsToCreate.length > 0) {
       await this.db
         .insertInto('post')
@@ -31,6 +32,7 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
         .execute();
     }
 
+    // delete any post older than 24h
     await this.db
       .deleteFrom('post')
       .where('indexedAt', '<=', new Date().getTime() - 86400000)
