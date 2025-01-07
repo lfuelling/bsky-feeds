@@ -60,6 +60,6 @@ export abstract class FirehoseSubscriptionBase {
       .selectAll()
       .where('service', '=', this.service)
       .executeTakeFirst();
-    return res ? { cursor: res.cursor } : {};
+    return res ? { cursor: Number(res.cursor) } : {};
   }
 }

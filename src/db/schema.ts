@@ -5,7 +5,7 @@ export type DatabaseSchema = {
 }
 
 export type PostCount = {
-  count: number
+  count: number | string
 }
 
 export type Post = {
@@ -16,5 +16,5 @@ export type Post = {
 
 export type SubState = {
   service: string
-  cursor: number
+  cursor: number | string
 }
