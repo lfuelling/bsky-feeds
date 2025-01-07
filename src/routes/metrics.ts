@@ -6,15 +6,15 @@ const makeRouter = (ctx: AppContext) => {
 
   router.get('/metrics', async (_req, res) => {
     return await ctx.db
-      .selectFrom('post')
-      .select((eb) => eb.fn.countAll().as('num_posts'))
+      .selectFrom('post_count')
+      .selectAll()
       .executeTakeFirst()
       .then(totalPosts => {
         if (totalPosts !== undefined) {
           res.contentType('text/plain; version=0.0.4');
           return res.send('# HELP feeds_posts_total Total number of posts.\n' +
             '# TYPE feeds_posts_total gauge\n' +
-            `feeds_posts_total ${(totalPosts.num_posts)}`);
+            `feeds_posts_total ${(totalPosts.count)}`);
         } else {
           return res.sendStatus(500);
         }

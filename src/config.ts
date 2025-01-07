@@ -9,9 +9,9 @@ export type AppContext = {
 
 export type Config = {
   port: number
-  listenhost: string
+  listenAddress: string
   hostname: string
-  sqliteLocation: string
+  dbConnectionString: string
   subscriptionEndpoint: string
   serviceDid: string
   publisherDid: string

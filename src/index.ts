@@ -12,8 +12,8 @@ const run = async () => {
       maybeStr(process.env.FEEDGEN_SERVICE_DID) ?? `did:web:${hostname}`;
     const server = FeedGenerator.create({
       port: maybeInt(process.env.FEEDGEN_PORT) ?? 3000,
-      listenhost: maybeStr(process.env.FEEDGEN_LISTENHOST) ?? 'localhost',
-      sqliteLocation: maybeStr(process.env.FEEDGEN_SQLITE_LOCATION) ?? ':memory:',
+      listenAddress: maybeStr(process.env.FEEDGEN_LISTENHOST) ?? 'localhost',
+      dbConnectionString: maybeStr(process.env.FEEDGEN_DB_CONNECTION) ?? ':memory:',
       subscriptionEndpoint:
         maybeStr(process.env.FEEDGEN_SUBSCRIPTION_ENDPOINT) ??
         'wss://bsky.network',
@@ -26,7 +26,7 @@ const run = async () => {
     });
     await server.start();
     console.log(
-      `🤖 running feed generator at http://${server.cfg.listenhost}:${server.cfg.port}`,
+      `🤖 running feed generator at http://${server.cfg.listenAddress}:${server.cfg.port}`,
     );
   }
 };

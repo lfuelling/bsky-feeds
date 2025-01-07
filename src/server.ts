@@ -32,7 +32,7 @@ export class FeedGenerator {
 
   static create(cfg: Config) {
     const app = express();
-    const db = createDb(cfg.sqliteLocation);
+    const db = createDb(cfg.dbConnectionString);
     const firehose = new FirehoseSubscription(db, cfg.subscriptionEndpoint);
 
     const didCache = new MemoryCache();
@@ -68,7 +68,7 @@ export class FeedGenerator {
     this.firehose.run(this.cfg.subscriptionReconnectDelay).catch((err) => {
       console.error(err);
     });
-    this.server = this.app.listen(this.cfg.port, this.cfg.listenhost);
+    this.server = this.app.listen(this.cfg.port, this.cfg.listenAddress);
     await events.once(this.server, 'listening');
     return this.server;
   }
