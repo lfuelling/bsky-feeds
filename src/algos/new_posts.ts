@@ -1,5 +1,5 @@
 import { QueryParams } from '../lexicon/types/app/bsky/feed/getFeedSkeleton';
-import { AppContext } from '../config';
+import { AppContext } from '../AppContext';
 
 export const shortname = 'new_posts';
 

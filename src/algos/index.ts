@@ -1,4 +1,4 @@
-import { AppContext } from '../config';
+import { AppContext } from '../AppContext';
 import { OutputSchema as AlgoOutput, QueryParams } from '../lexicon/types/app/bsky/feed/getFeedSkeleton';
 import * as new_posts from './new_posts';
 

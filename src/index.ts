@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import FeedGenerator from './server';
+import { FeedGenerator } from './FeedGenerator';
 
 const run = async () => {
   const { error } = dotenv.config();

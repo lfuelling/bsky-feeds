@@ -6,10 +6,11 @@ import { createServer } from './lexicon';
 import feedGeneration from './methods/feed-generation';
 import describeGenerator from './methods/describe-generator';
 import { createDb, Database, migrateToLatest } from './db';
-import { FirehoseSubscription } from './subscription';
-import { AppContext, Config } from './config';
+import { FirehoseSubscription } from './FirehoseSubscription';
+import { Config } from './Config';
 import wellKnown from './routes/well-known';
 import metrics from './routes/metrics';
+import { AppContext } from './AppContext';
 
 export class FeedGenerator {
   public app: express.Application;
@@ -73,5 +74,3 @@ export class FeedGenerator {
     return this.server;
   }
 }
-
-export default FeedGenerator;

@@ -1,4 +1,4 @@
-import { Kysely, Migration, MigrationProvider, PostgresDialect, sql } from 'kysely';
+import { Kysely, Migration, MigrationProvider, sql } from 'kysely';
 
 const migrations: Record<string, Migration> = {};
 
@@ -39,11 +39,13 @@ migrations['001'] = {
       .execute();
 
     // inert count item
-    await sql`INSERT INTO post_count DEFAULT VALUES;`.execute(db);
+    await sql`INSERT INTO post_count DEFAULT
+              VALUES;`.execute(db);
 
     // Create trigger function
     await sql`
-        CREATE OR REPLACE FUNCTION update_post_count() RETURNS TRIGGER AS $$
+        CREATE OR REPLACE FUNCTION update_post_count() RETURNS TRIGGER AS
+        $$
         BEGIN
             IF TG_OP = 'INSERT' THEN
                 UPDATE post_count SET count = count + 1;
@@ -58,7 +60,8 @@ migrations['001'] = {
     // Create trigger
     await sql`
         CREATE TRIGGER post_count_trigger
-            AFTER INSERT OR DELETE ON post
+            AFTER INSERT OR DELETE
+            ON post
             FOR EACH ROW
         EXECUTE FUNCTION update_post_count();
     `.execute(db);

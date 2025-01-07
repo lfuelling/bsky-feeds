@@ -1,5 +1,6 @@
 import { isCommit, OutputSchema as RepoEvent } from './lexicon/types/com/atproto/sync/subscribeRepos';
-import { FirehoseSubscriptionBase, getOpsByType } from './util/subscription';
+import { getOpsByType } from './util/getOpsByType';
+import { FirehoseSubscriptionBase } from './FirehostSubscriptionBase';
 
 export class FirehoseSubscription extends FirehoseSubscriptionBase {
   async handleEvent(evt: RepoEvent) {
