@@ -11,7 +11,7 @@ export type PostCount = {
 export type Post = {
   uri: string
   cid: string
-  indexedAt: number
+  indexedAt: number | string
 }
 
 export type SubState = {
