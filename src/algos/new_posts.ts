@@ -12,7 +12,7 @@ export const handler = async (ctx: AppContext, params: QueryParams) => {
     .limit(params.limit);
 
   if (params.cursor) {
-    builder = builder.where('post.indexedAt', '<', new Date(parseInt(params.cursor, 10)).getTime());
+    builder = builder.where('post.indexedAt', '<', new Date(Number(params.cursor)).getTime());
   }
   const res = await builder.execute();
 
