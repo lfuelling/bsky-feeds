@@ -1,4 +1,29 @@
-# ATProto Feed Generator
+# feeds.lrk.lol
+
+My own feed server.
+
+## Important
+
+This now runs on postgresql for speed!
+
+### PG Setup
+```
+apt install postgresql-15
+# go to https://pgtune.leopard.in.ua/ for settings
+vi /etc/postgresql/15/main/postgresql.conf
+systemctl restart postgresql
+su postgres -S /bin/bash
+
+# > psql
+# > CREATE USER feeds WITH PASSWORD 'changemepls';
+# > CREATE DATABASE feeds;
+# > GRANT ALL PRIVILEGES ON DATABASE feeds TO feeds;
+# > \c feeds
+# > GRANT ALL ON SCHEMA public TO feeds;
+```
+
+-------
+# Old README
 
 This is a starter kit for creating ATProto Feed Generators. It's not feature complete, but should give you a good starting ground off of which to build and deploy a feed.
 
