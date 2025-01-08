@@ -1,6 +1,6 @@
 {
   "name": "feeds",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Lerk's feed generator.",
   "main": "index.js",
   "repository": "git@git.lrk.sh:lerk/feeds.git",
