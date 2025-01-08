@@ -36,7 +36,7 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
     // delete any post older than 24h
     await this.db
       .deleteFrom('post')
-      .where('indexedAt', '<=', new Date().getTime() - 86400000)
+      .where('indexedAt', '<=', new Date().getTime() - 172800000)
       .execute();
   }
 }
