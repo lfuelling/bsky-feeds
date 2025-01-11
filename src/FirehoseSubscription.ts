@@ -2,6 +2,7 @@ import { isCommit, OutputSchema as RepoEvent } from './lexicon/types/com/atproto
 import { getOpsByType } from './util/getOpsByType';
 import { FirehoseSubscriptionBase } from './FirehostSubscriptionBase';
 import { sql } from 'kysely';
+import { Post } from './db/schema';
 
 export class FirehoseSubscription extends FirehoseSubscriptionBase {
   async handleEvent(evt: RepoEvent) {
@@ -16,7 +17,9 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
           uri: create.uri,
           cid: create.cid,
           indexedAt: new Date().getTime(),
-        };
+          has_image: create.record.embed?.$type === "app.bsky.embed.images",
+          lang: (create.record.langs ?? [])[0] ?? null
+        } as Post;
       });
 
     if (postsToDelete.length > 0) {

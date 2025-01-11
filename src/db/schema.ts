@@ -12,7 +12,9 @@ export type PostCount = {
 
 export type Post = {
   uri: string
-  cid: string
+  cid: string // primary key
+  lang?: string
+  has_image: boolean
   indexedAt: number | string
 }
 
