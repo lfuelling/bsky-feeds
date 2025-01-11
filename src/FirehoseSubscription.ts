@@ -1,6 +1,7 @@
 import { isCommit, OutputSchema as RepoEvent } from './lexicon/types/com/atproto/sync/subscribeRepos';
 import { getOpsByType } from './util/getOpsByType';
 import { FirehoseSubscriptionBase } from './FirehostSubscriptionBase';
+import { sql } from 'kysely';
 
 export class FirehoseSubscription extends FirehoseSubscriptionBase {
   async handleEvent(evt: RepoEvent) {
@@ -33,10 +34,14 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
         .execute();
     }
 
-    // delete any post older than 24h
-    await this.db
-      .deleteFrom('post')
-      .where('indexedAt', '<=', new Date().getTime() - 172800000)
-      .execute();
+    // delete max 10 posts older than 48h
+    await sql`WITH rows_to_delete AS (
+        SELECT uri
+        FROM post
+        WHERE post."indexedAt" <= ${new Date().getTime() - 172800000}
+        LIMIT 10
+    )
+        DELETE FROM post
+        WHERE uri IN (SELECT uri FROM rows_to_delete);`.execute(this.db);
   }
 }
