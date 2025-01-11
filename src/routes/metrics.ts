@@ -14,13 +14,15 @@ const makeRouter = (ctx: AppContext) => {
           res.contentType('text/plain; version=0.0.4');
           return res.send('# HELP feeds_posts_total Total number of posts currently saved.\n' +
             '# TYPE feeds_posts_total gauge\n' +
-            `feeds_posts_total ${(postCount.count)}\n` +
+            `feeds_posts_total ${(postCount.total)}\n` +
             '# HELP feeds_posts_deleted Number of deleted posts.\n' +
             '# TYPE feeds_posts_deleted gauge\n' +
-            `feeds_posts_deleted ${(postCount.deleted)}\n` +
+            `feeds_posts_deleted{reason="user"} ${(postCount.deleted_user)}\n` +
+            `feeds_posts_deleted{reason="feed_generator"} ${(postCount.deleted_feed_generator)}\n` +
             '# HELP feeds_posts_created Number of created posts.\n' +
             '# TYPE feeds_posts_created gauge\n' +
-            `feeds_posts_created ${(postCount.created)}\n`);
+            `feeds_posts_created{has_image="true"} ${(postCount.created_image)}\n` +
+            `feeds_posts_created{has_image="false"} ${(postCount.created_no_image)}\n`);
         } else {
           return res.sendStatus(500);
         }

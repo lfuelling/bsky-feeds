@@ -5,9 +5,11 @@ export type DatabaseSchema = {
 }
 
 export type PostCount = {
-  count: number | string
-  created: number | string
-  deleted: number | string
+  total: number | string
+  created_image: number | string
+  created_no_image: number | string
+  deleted_user: number | string
+  deleted_feed_generator: number | string
 }
 
 export type Post = {
