@@ -19,7 +19,11 @@ export default function(server: Server, ctx: AppContext) {
       );
     }
 
-    let langs = req.header('accept-language')?.split(',') ?? [];
+    let languageHeader = req.header('accept-language')
+    if(languageHeader === '') {
+      languageHeader = undefined;
+    }
+    const langs = languageHeader?.split(',') ?? [];
 
     const body = await algo(ctx, params, langs);
     return {
