@@ -37,14 +37,14 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
         .execute();
     }
 
-    // delete max 10 posts older than 48h
-    await sql`WITH rows_to_delete AS (
+    // delete max 10 posts older than 48h, this causes lots of lag and I have yet to find a better solution.
+    /*await sql`WITH rows_to_delete AS (
         SELECT uri
         FROM post
         WHERE post."indexedAt" <= ${new Date().getTime() - 172800000}
         LIMIT 10
     )
         DELETE FROM post
-        WHERE uri IN (SELECT uri FROM rows_to_delete);`.execute(this.db);
+        WHERE uri IN (SELECT uri FROM rows_to_delete);`.execute(this.db);*/
   }
 }
