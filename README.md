@@ -2,9 +2,22 @@
 
 My own feed server.
 
+This was modified from the starter template in the following ways:
+
+- Use PostgreSQL for speed
+- Add ability to filter feeds by language
+- Fix cursor functionalityq
+- Give a firehose-like feed with all posts
+- Give a firehose-like feed with text-only posts
+- Give a firehose-like feed with posts that contain images
+- Prometheus-compatible metrics about the number of saved posts
+  - Metrics are generated using Pg Trigger Functions
+- Index `has_image` and `lang` for every post
+
 ## Important
 
 This now runs on postgresql for speed!
+There is no guarantee for anything, this code probably sucks.
 
 ### PG Setup
 ```
