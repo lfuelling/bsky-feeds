@@ -6,7 +6,7 @@ This was modified from the starter template in the following ways:
 
 - Use PostgreSQL for speed
 - Add ability to filter feeds by language
-- Fix cursor functionalityq
+- Fix cursor functionality
 - Give a firehose-like feed with all posts
 - Give a firehose-like feed with text-only posts
 - Give a firehose-like feed with posts that contain images
@@ -16,8 +16,8 @@ This was modified from the starter template in the following ways:
 
 ## Important
 
-This now runs on postgresql for speed!
-There is no guarantee for anything, this code probably sucks.
+- This now runs on postgresql for speed!
+- There is no guarantee for anything, this code probably sucks.
 
 ### PG Setup
 ```
